@@ -79,7 +79,7 @@
               </div>
               <div class="mt-2" ><img src="images/cupon-devider.png" alt=""></div>
               <div class="mt-20 ml-8">
-                <h1 class="font-bold text-3xl text-black">Couple 20</h1>
+                <h1 class="font-bold text-3xl text-black">Couple20</h1>
                 <p class="pt-5 font-medium text-xl text-[#03071266]">Cou Coupon Code</p>
               </div>
             </div>
@@ -114,7 +114,7 @@
 
                     </div>
                 <div class="mt-7 border-[#1DD126]">
-                  <button class="flex bg-[#1DD10026] rounded-xl font-medium text-[#1DD100] p-4 gap-2 "><img src="images/seat-green.png" alt=""><span>8</span> Seats left</button>
+                  <button id="seats-left-button" class="flex bg-[#1DD10026] rounded-xl font-medium text-[#1DD100] p-4 gap-2 "><img src="images/seat-green.png" alt=""><span id="seats-left">8</span> Seats left</button>
                 </div>
             </div>
             <div class="mx-auto flex justify-between mt-6 p-8 bg-[#F7F8F8] rounded-3xl w-[800px] h-[260px]">
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <hr>
-            <div class=" pt-6 pl-[455px]">
+            <div class=" pt-4 pl-[455px]">
               <div class=" pt-3 pl-8 bg-gray-400 rounded-xl w-24 h-14">
                 <img src="images/drive.png" alt="">
               </div>
@@ -193,26 +193,21 @@
                     </button>
                 </div>
             </div>
-            <div class="flex  mt-5">
+            <div class="add-btn flex mt-6">
                 <div class="flex gap-10 items-center">
                   <h1 class="font-medium text-[#03071280] text-lg">B</h1>
-                    <button class=" font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">
-                        B1
-                    </button>
-                    <button class=" font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">
-                        B2
-                    </button>
+                  <button class=" font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">B1</button>
+                  <button class=" font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">B2</button>
                 </div>
                 <div class="space-x-8 pl-10">
-                    <button class=" font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">
+                    <button class="font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">
                         B3
                     </button>
-                    <button class=" font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">
+                    <button class="font-medium text-[#03071280] text-lg bg-gray-300 rounded-xl w-24 h-14">
                         B4
                     </button>
                 </div>
             </div>
-            <!-- seat end -->
         </div>
         <div>
             <div>
@@ -221,7 +216,7 @@
                 </h1>
             </div>
             <hr class="pb-4">
-            <div class="p-7 bg-[#F7F8F8]   rounded-xl w-[430px] h-[330px]">
+            <div class="p-7 bg-[#F7F8F8]   rounded-xl w-[430px] h-auto">
                 <div class="flex pb-3 justify-between">
                     <p class="font-medium text-black">
                         Seat
@@ -236,42 +231,27 @@
                         Price
                     </p>
                 </div>
-                <div class="flex pb-3 justify-between">
-                    <p class="text-gray-500">
-                        C <span class="text-gray-500">0</span>
-                    </p>
-                    <p class="text-gray-500">
-                        Economoy
-                    </p>
-                    <p class="text-gray-500">
-                        550
-                    </p>
+                <div id="selected-seats" class="space-y-3">
+
                 </div>
-                <div class="flex pb-5 justify-between ">
-                    <p class="font-medium text-gray-500">
-                        Total Price
-                    </p>
-                    <p class="font-medium text-gray-500">
-                        550
-                    </p>
-                </div>
-                <hr class="pb-5">
-                <div class="flex font-medium text-base  justify-between">
-                  <p>Grand Total</p>
-                  <p>BDT <span>0</span></p>
+                <hr class="pb-3">
+                <div class="flex mt-5 font-medium text-base justify-between">
+                  <p>Total Price</p>
+                  <p>BDT <span id="total-price">0</span></p>
               </div>
                 <div class="h-14 mt-5 rounded-lg bg-[#FFFFFF] flex  items-center px-4">
                     <div class="">
-                        <input class="ml-5" type="text" placeholder="Have a coupon?">
+                        <input class="p-4" type="text" placeholder="Have a coupon?">
                     </div>
                     <div class="pl-12 ">
-                        <button class="btn btn-success m-10 bg-[#1DD100] font-bold border-none text-white">Apply</button>
+                        <button class="apply-button btn btn-disabled m-10 bg-gray-300 font-bold border-none text-white" disabled>Apply</button>
                     </div>
                 </div>
                 <div class="flex mt-5 font-medium text-base justify-between">
                   <p>Grand Total</p>
-                  <p>BDT <span>0</span></p>
+                  <p>BDT <span id="grand-total-display">0</span></p>
               </div>
+                  <div class="text-red-500" id="coupon-message"></div>
             </div>
             <div class="mt-5 font-semibold text-base">
           <h1>Passenger Name*</h1>
@@ -279,14 +259,14 @@
             <input class="pt-3 pl-20" type="text" name="" id="" placeholder="Your Name">
           </div>
             </div>
-            <div>
-              <div class="mt-5 font-semibold text-base">
-                <h1>Phone Number*</h1>
-              </div>
-              <div class="w-[430px] mt-5 pt-2 h-[60px] border-2 border-[#0307121A] rounded-xl">
-                <input class="pt-3 pl-20" type="number" name="" id="" placeholder="Your Number">
-              </div>
-            </div>
+            <div class="w-[430px] mt-5 pt-2 h-[60px] border-2 border-[#0307121A] rounded-xl flex items-center">
+              <input
+                class="w-full pl-2 pr-4 pt-1 h-full text-lg border-none focus:outline-none"
+                type="number"
+                id="phone-number"
+                placeholder="Your Number"
+              >
+            </div>            
             <div>
               <div class="mt-5 font-semibold text-base">
                 <h1>Email ID</h1>
@@ -300,8 +280,66 @@
             </div>
         </div>
     </div>
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+      <div class="bg-white p-6 text-center pt-24 rounded shadow-lg w-[500px] h-72">
+        <h2 class="text-2xl font-semibold mb-4 ">Success!</h2>
+        <p>Thank you for Booking Our Bus Seats. 
+          We are working hard to find the best service and deals for you. </p>
+        <button id="close-modal" class="mt-4 bg-green-500 text-white px-4 py-2 rounded">OK</button>
+      </div>
+    </div>
 </section>
   </section>
+  <footer class="footer bg-neutral text-neutral-content p-10">
+    <aside>
+      <h1 class="text-3xl font-bold">
+       I-Ticket
+      </h1>
+      <p class=" text-xl font-medium">P-Ticket is a digital platform to make your daily commuting better.</p>
+    </aside>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+          </svg>
+        </a>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+          </svg>
+        </a>
+        <a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="mt-8">
+        Copyright © 2024 - All right reserved
+      </div>
+    </nav>
+  </footer>
   </main>
   <script src="app.js"></script>
 </body>
